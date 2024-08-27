@@ -7,8 +7,7 @@
       "ppa": true,
       "version": "os-provided"
     },
-    "ghcr.io/devcontainers/features/common-utils:2": {},
-    "ghcr.io/devcontainers/features/cmake:1": {}
+    "ghcr.io/devcontainers/features/common-utils:2": {}
   },
   "postCreateCommand": "bash .devcontainer/setup.sh",
   "remoteUser": "vscode",
