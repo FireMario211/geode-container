@@ -36,3 +36,5 @@ geode sdk install-binaries
 
 sudo apt-get clean
 sudo rm -rf /var/lib/apt/lists/*
+
+echo "export GEODE_SDK=~/geode" >> ~/.bashrc
