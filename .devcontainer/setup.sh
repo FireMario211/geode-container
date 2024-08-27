@@ -1,14 +1,14 @@
 #!/bin/bash
 
 sudo apt-get update
-sudo apt-get install wget software-properties-common gnupg
+sudo apt-get -y install wget software-properties-common gnupg
 # i shouldnt NEED to do this but the latest ver on ubuntu is clang-14!?
 wget https://apt.llvm.org/llvm.sh
 chmod +x llvm.sh
 sudo ./llvm.sh 17
 sudo apt-get update
-sudo apt-get install unzip pip ninja-build
-sudo apt install git clang-17 clang-tools-17 lld-17
+sudo apt-get -y install unzip pip ninja-build
+sudo apt install -y git clang-17 clang-tools-17 lld-17
 pip install cmake --upgrade # because for whatever reason it installs an outdated version, ig source repos arent up to date!
 
 wget https://github.com/geode-sdk/cli/releases/download/v3.2.0/geode-cli-v3.2.0-linux.zip
