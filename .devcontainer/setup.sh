@@ -17,22 +17,19 @@ chmod +x geode
 sudo mv geode /usr/local/bin/
 rm geode-cli-v3.2.0-linux.zip
 
-wget https://github.com/Jake-Shadle/xwin/releases/download/0.6.5/xwin-0.6.5-x86_64-unknown-linux-musl.tar.gz
-tar -xzf xwin-0.6.5-x86_64-unknown-linux-musl.tar.gz
-chmod +x xwin-0.6.5-x86_64-unknown-linux-musl/xwin
-sudo mv xwin-0.6.5-x86_64-unknown-linux-musl/xwin /usr/local/bin/
-rm -rf xwin-0.6.5-x86_64-unknown-linux-musl
-rm xwin-0.6.5-x86_64-unknown-linux-musl.tar.gz
-
-mkdir -p ~/xwin/splat
-cd ~/xwin
-xwin --arch x86_64 --accept-license splat --include-debug-libs --output splat
-
-git clone https://github.com/matcool/clang-msvc-sdk.git toolchain
+wget https://dl.google.com/android/repository/android-ndk-r27-linux.zip
+sudo unzip -q android-ndk-r27-linux.zip -d /opt
+sudo mv /opt/android-ndk-r27 /opt/android-ndk
+rm android-ndk-r27-linux.zip
+export ANDROID_NDK_ROOT=/opt/android-ndk
 
 geode sdk install ~/geode
 export GEODE_SDK=~/geode
-geode sdk install-binaries
+geode sdk install-binaries -p android32
+geode sdk install-binaries -p android64
 
 sudo apt-get clean
 sudo rm -rf /var/lib/apt/lists/*
+
+echo "export ANDROID_NDK_ROOT=/opt/android-ndk" >> ~/.bashrc
+echo "export GEODE_SDK=~/geode" >> ~/.bashrc
